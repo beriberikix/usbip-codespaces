@@ -12,7 +12,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && cd drivers/usb/usbip \
     && cp usbip-core.ko vhci-hcd.ko /dist
 
-TODO: figure out how to pass uname -r to COPY
+# TODO: figure out how to pass uname -r to COPY
 FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu
 COPY --from=build /dist/* /lib/modules/5.4.0-1086-azure/
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
