@@ -3,10 +3,10 @@
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
-	"runArgs": [
-		"--privileged",
-		"--cap-add=ALL"
-	],
+	// "runArgs": [
+	// 	"--privileged",
+	// 	"--cap-add=ALL"
+	// ],
 	"forwardPorts": [
 		3240
 	],
