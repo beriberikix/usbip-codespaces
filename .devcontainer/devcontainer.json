@@ -3,10 +3,10 @@
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
-	// "runArgs": [
-	// 	"--privileged",
-	// 	"--cap-add=ALL"
-	// ],
+	"runArgs": [
+		"--privileged",
+		"--cap-add=ALL"
+	],
 	"forwardPorts": [
 		3240
 	],
@@ -18,5 +18,8 @@
 		"git": "latest",
 		"github-cli": "latest",
 		"sshd": "latest"
-	}
+	},
+	"mounts": [
+		"source=/lib/modules/`uname -r`/kernel/drivers/usb/usbip,target=/lib/modules/`uname -r`,type=bind,consistency=cached"
+	]
 }
