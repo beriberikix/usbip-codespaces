@@ -9,5 +9,6 @@
 	"remoteUser": "vscode",
 	"mounts": [
 		"source=/lib/modules,target=/lib/modules,type=bind,consistency=cached"
-	]
+	],
+	"initializeCommand": "uname -a"
 }
