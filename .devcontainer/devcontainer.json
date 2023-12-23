@@ -3,20 +3,12 @@
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
-	// "runArgs": [
-	// 	"--privileged",
-	// 	"--cap-add=ALL"
-	// ],
-	"forwardPorts": [
-		3240
+	"runArgs": [
+		"--privileged"
 	],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
-	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
-	"features": {
-		"git": "latest",
-		"github-cli": "latest",
-		"sshd": "latest"
-	}
+	"mounts": [
+		"source=/lib/modules,target=/lib/modules,type=bind,consistency=cached"
+	],
+	"initializeCommand": "uname -a"
 }
