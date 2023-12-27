@@ -10,5 +10,5 @@
 	"mounts": [
 		"source=/lib/modules,target=/lib/modules,type=bind,consistency=cached"
 	],
-	"initializeCommand": "uname -a"
+	"initializeCommand": "chmod +x .devcontainer/init.sh && .devcontainer/init.sh"
 }
