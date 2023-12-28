@@ -1,3 +1,3 @@
 #!/bin/bash
  
- apt install linux-tools-$(uname -r)
+ls /lib/modules/$(uname -r)/kernel/drivers/usb
