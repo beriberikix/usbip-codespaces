@@ -64,3 +64,11 @@ RUN \
     && make modules_prepare \
     # && make M=drivers/usb/usbip modules -j2
     && make modules -j2
+
+# on the host:
+#
+# docker cp {container}:/root/linux-5.15.0/drivers/usb/usbip/ /lib/modules/kernel/drivers/usb/
+# depmod
+# modprobe usbip-core
+# modprobe vhci-hcd
+# apt install linux-tools-generic hwdata
