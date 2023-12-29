@@ -6,9 +6,8 @@
 	"runArgs": [
 		"--privileged"
 	],
-	"remoteUser": "vscode",
-	"mounts": [
-		"source=/lib/modules,target=/lib/modules,type=bind,consistency=cached"
-	],
+	// "mounts": [
+	// 	"source=/lib/modules,target=/lib/modules,type=bind,consistency=cached"
+	// ],
 	"initializeCommand": "chmod +x .devcontainer/init.sh && .devcontainer/init.sh"
 }
