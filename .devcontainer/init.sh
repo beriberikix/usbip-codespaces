@@ -1,41 +1,43 @@
 #!/bin/bash
 
-# Sources for debian
+$(uname -r)
 
-echo 'deb-src http://archive.ubuntu.com/ubuntu jammy main' >> /etc/apt/sources.list
-echo 'deb-src http://archive.ubuntu.com/ubuntu jammy-updates main' >> /etc/apt/sources.list
+# # Sources for debian
 
-# Set TZ to UTC
+# echo 'deb-src http://archive.ubuntu.com/ubuntu jammy main' >> /etc/apt/sources.list
+# echo 'deb-src http://archive.ubuntu.com/ubuntu jammy-updates main' >> /etc/apt/sources.list
 
-ln -fs /usr/share/zoneinfo/UTC /etc/localtime
+# # Set TZ to UTC
 
-# Main deps, from https://askubuntu.com/a/1435592
+# ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 
-apt-get -y update \
-apt-get -y build-dep --no-install-recommends linux linux-image-generic
+# # Main deps, from https://askubuntu.com/a/1435592
 
-# Additional deps
+# apt-get -y update \
+# apt-get -y build-dep --no-install-recommends linux linux-image-generic
 
-apt-get -y install --no-install-recommends libncurses-dev gawk flex bison openssl dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf llvm build-essential libncurses5-dev gcc bc dwarves
+# # Additional deps
 
-# Get source
+# apt-get -y install --no-install-recommends libncurses-dev gawk flex bison openssl dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf llvm build-essential libncurses5-dev gcc bc dwarves
 
-cd /root
-apt-get source linux-image-unsigned-$(uname -r)
+# # Get source
 
-# Build module
+# cd /root
+# apt-get source linux-image-unsigned-$(uname -r)
 
-cd /root/linux*
-cp /boot/config-* .config
-chmod a+x debian/scripts/*
-chmod a+x -R ./scripts \
-make olddefconfig \
-make modules_prepare \
-make M=drivers/usb/usbip modules -j2
-# make modules -j2
+# # Build module
 
-# Load modules
-# docker cp {container}:/root/linux-5.15.0/drivers/usb/usbip/ /lib/modules/kernel/drivers/usb/
-# depmod
-# modprobe usbip-core
-# modprobe vhci-hcd
+# cd /root/linux*
+# cp /boot/config-* .config
+# chmod a+x debian/scripts/*
+# chmod a+x -R ./scripts \
+# make olddefconfig \
+# make modules_prepare \
+# make M=drivers/usb/usbip modules -j2
+# # make modules -j2
+
+# # Load modules
+# # docker cp {container}:/root/linux-5.15.0/drivers/usb/usbip/ /lib/modules/kernel/drivers/usb/
+# # depmod
+# # modprobe usbip-core
+# # modprobe vhci-hcd
