@@ -1,31 +1,7 @@
 #!/bin/bash
 
-$(uname -r)
-
-# # Sources for debian
-
-# echo 'deb-src http://archive.ubuntu.com/ubuntu jammy main' >> /etc/apt/sources.list
-# echo 'deb-src http://archive.ubuntu.com/ubuntu jammy-updates main' >> /etc/apt/sources.list
-
-# # Set TZ to UTC
-
-# ln -fs /usr/share/zoneinfo/UTC /etc/localtime
-
-# # Main deps, from https://askubuntu.com/a/1435592
-
-# apt-get -y update \
-# apt-get -y build-dep --no-install-recommends linux linux-image-generic
-
-# # Additional deps
-
-# apt-get -y install --no-install-recommends libncurses-dev gawk flex bison openssl dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf llvm build-essential libncurses5-dev gcc bc dwarves
-
-# # Get source
-
-# cd /root
-# apt-get source linux-image-unsigned-$(uname -r)
-
-# # Build module
+apt install wget
+wget https://firebasestorage.googleapis.com/v0/b/usbip-docker.appspot.com/o/usbip-jammy.tar.gz?alt=media&token=f71e0574-dc46-40d6-a38b-9c26c1114c77
 
 # cd /root/linux*
 # cp /boot/config-* .config
