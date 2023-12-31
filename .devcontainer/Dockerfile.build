@@ -18,7 +18,7 @@ RUN \
     apt-get -y update \
     && apt-get -y build-dep --no-install-recommends \
     linux \
-    linux-image-generic \
+    ` \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
